@@ -1,9 +1,6 @@
 package org.example;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -82,13 +79,106 @@ public class Main {
         System.out.println(list);
 */
 
-        Integer numbers[] = {2, 8, 3, 6, 1, 7, 9, 0};
+ /*       Integer numbers[] = {2, 8, 3, 6, 1, 7, 9, 0};
 
         List<Integer> list = Arrays.stream(numbers)
                 .sorted((o1, o2) -> o1.compareTo(o2) * -1)
                 .collect(Collectors.toList());
 
-        System.out.println(list);
+        System.out.println(list);*/
+      /*  List<String> nameList = new LinkedList<>();
+        nameList.add("Alish");
+        nameList.add("Valish");
+        nameList.add("Toshmat");
+
+        List<String> distinctList = nameList.stream()
+                .filter(a -> a.length() > 5)
+                .peek(s -> System.out.println(s))
+                .collect(Collectors.toList());*/
+     /*   List<String> nameList = new LinkedList<>();
+        nameList.add("Alish");
+        nameList.add("Valish");
+        nameList.add("Toshmat");
+        nameList.add("Eshmat");
+        nameList.add("Qo'y");
+*/
+
+/*        List<String> collect = nameList.stream()
+                .limit(3).collect(Collectors.toList());
+        System.out.println(collect);*/
+
+        /*List<String> collect = nameList.stream()
+                .skip(3).collect(Collectors.toList());
+        System.out.println(collect);*/
+/*
+        long count = nameList.stream()
+                .filter(s -> s.length() > 5)
+                .count();
+        System.out.println(count);*/
+      /*  List<String> stringList = new ArrayList<String>();
+        stringList.add("Dasturlash");
+        stringList.add("Java");
+        stringList.add("Mazgi");
+        stringList.add("Latta");
+
+        boolean java = stringList.stream()
+                .anyMatch(s -> s.startsWith("Java"));
+        System.out.println(java);*/
+ /*       List<String> stringList = new ArrayList<>();
+        stringList.add("Dasturlash");
+        stringList.add("Java");
+        stringList.add("Mazgi");
+        stringList.add("Latta");
+
+        Stream<String> stream = stringList.stream();*/
+
+      /*  Set<String> set = stream
+                .filter(s -> s.length() > 5)
+                .collect(Collectors.toSet());
+        System.out.println(set);*/
+
+      /*  Stream<String> stream1 = stringList.stream();
+        Optional<String> first = stream1.peek(s -> System.out.println(s))
+                .filter(s -> s.length() > 5)
+                .findFirst();*/
+
+//        System.out.println(first.get());
+
+    /*    String collect = stream.filter(s -> s.length() > 3).collect(Collectors.joining());
+
+        System.out.println(collect);*/
+
+        Integer[] numbers = {4, 8, 3, 1, 5, 9, 4, 2};
+
+        Optional<Integer> result = Arrays.stream(numbers)
+                .filter(n -> n > 0)
+                .reduce((value, sum) -> sum += value);
+
+        System.out.println(result.get());
+
+
+
+//        Integer[] numbers = {4, 8, 3, 1, 5, 9, 4, 2};
+
+        Optional<Integer> optional = Arrays.stream(numbers)
+                .filter(n -> n > 0)
+                .reduce((value, sum) -> sum += value);
+
+        Integer n1 = optional.get();
+        Integer n2 = optional.orElseThrow(() -> new RuntimeException("dasda"));
+        Integer n3 = optional.orElse(null);
+        Integer n4 = optional.orElseGet(() -> {
+            /// getByName();
+            return 11;
+        });
+
+        Integer n5 = optional.filter(n -> n > 0).orElse(null);
+        Integer n6 = optional.map(n -> {
+            // to DTO
+            return 1;
+        }).orElse(null);
+
+        System.out.println();
     }
 
 }
